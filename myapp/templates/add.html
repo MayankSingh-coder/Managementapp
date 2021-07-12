@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Theme Starz">
+<link href="assets/fonts/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css"> 
+<title>Login</title>
+<style>
+@media only screen and (min-width: 1280px) {
+  
+  .background{
+  background-image: url("{%static 'img/new.jpeg' %}");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+   }
+}   
+  @media only screen and (min-width: 768px) {
+    .background  { 
+         background-image:  url("{%static 'img/new.jpeg' %}");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+      }
+}
+@media only screen and (min-width: 992px) {
+  
+  .background{
+  background-image:  url("{%static 'img/new.jpeg' %}");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width:100%;
+   }
+   .phone-form{display:none;}
+}   
+@media only screen and (max-device-width: 480px) {
+  
+  .background{
+  background-image:  url("{%static 'img/new.jpeg' %}");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+    height: 55vh;
+
+
+   }
+ 
+}   
+
+
+</style>
+</head>
+<body>
+    <div class="container background" >    
+        <div id="loginbox" style="margin-top:250px;" class="mainbox col-md-6 col-md-offset-3 col-sm-12 col-sm-offset-2"> 
+        <div class="form-panel">
+            <div class="panel panel-info form" >
+				<div class="panel-heading">
+					<div class="panel-title">Sign In</div>
+					<div style="float:right; font-size: 80%; position: relative; top:-10px"></div>
+				</div>     
+				<div style="padding-top:30px" class="panel-body" >
+				{% if showit %}
+				<div class="alert alert-danger"> <strong>Warning!</strong> Your mobile is already registered.</div>
+			    {% endif %}					
+					<div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+					<form id="loginform" class="form-horizontal" role="form" action={% url 'add' %} method="POST">
+                        {% csrf_token %}
+                        <div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="fullname" value="" placeholder="Full Name.." required>           
+						</div>	
+                        <div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="email" class="form-control" name="email" value="" placeholder="Email.." required>           
+						</div>				
+						<div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="login-username" type="number" class="form-control" name="phn" value="" placeholder="Mobile No.." required>                                        
+						</div>
+                        <div style="margin-bottom: 25px" class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="login-username" type="text" class="form-control" name="designation" value="" placeholder="Designation.." required>                                        
+						</div>
+                        <div style="margin-bottom: 25px" class="input-group">
+							 
+                            <textarea cols="100", rows="4", name="address" style=" -webkit-box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                            box-sizing: border-box;
+                        
+                            width: 100%;" placeholder="Adress.."></textarea> 
+						</div>
+						<div style="margin-top:10px" class="form-group">
+							<div class="col-sm-12 controls">
+							  <button type="submit" name="submit" class="btn btn-primary">Add</button>
+							</div>
+						</div>
+					</form>     
+				</div>                     
+			</div>  
+        </div>
+    </div>
+</div>
+ 
+</body>
+</html>
