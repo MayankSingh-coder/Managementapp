@@ -32,7 +32,7 @@ SECRET_KEY = '%b)7=2iq%y3w#998@elj_71i!038^w1^21!q8mm1s@$fm+l0qh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','bjpharyanavolunteers.herokuapp.com/']
 
 
 # Application definition
